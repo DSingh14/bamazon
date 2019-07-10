@@ -9,11 +9,11 @@ CREATE TABLE products (
   product_name VARCHAR(20) NOt NULL,
   departement_name VARCHAR(20) NOT NULL,
   price DECIMAL(5,2) NOT NULL,
-  stock_price INTEGER(10) NOT NULL,
+  stock_quantity INTEGER(10) NOT NULL,
   PRIMARY KEY (item_id)
 );
 
-INSERT INTO products (product_name,departement_name,price,stock_price)
+INSERT INTO products (product_name,departement_name,price,stock_quantity)
 VALUES('tennis ball', ' sports' , 10.25 ,120),
         ('volleyball','sports', 25.99 ,352),
         ('Basketball','sports', 99.00 ,100),
