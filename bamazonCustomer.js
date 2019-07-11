@@ -75,27 +75,33 @@ var questionToBeAsked = function () {
     })
 
 }
-function matchQuantity(id) {
+function matchQuantity(id, currentQuantity) {
+
     connection.query("select * from products where item_id =?", [id], function (err, res) {
         console.log("Available stock for your order : " + res[0].stock_quantity);
+
+        var availableStock;
+        var totalCost;
+
+        if (res[0].stock_quantity >= currentQuantity) {
+            availableStock = (res[0].stock_quantity - currentQuantity);
+            totalCost = res[0].price * currentQuantity;
+            console.log(" Item available after placing order is " + availableStock)
+            connection.query("UPDATE products SET ? where ?",
+                [{ stock_quantity: availableStock },
+                { item_id: id }]
+                , function (err, response) {
+                    if (err) throw err;
+                    console.table(response)
+
+                })
+            console.log("Your item is available. Total cost for this transaction is $ " + totalCost);
+        } else {
+            console.log("Your order exceed current stock. Please choose another item quantity.");
+            questionToBeAsked();
+
+        }
     })
 
-    /* var availableStock;
-    var stockQuantity =
-    if (stock_quantity > currentQuantity) {
-        availableStock = stock_quantity - currentQuantity;
-        connection.query("UPDATE FROM products SET stock_quantity=? where item_id=?",
-            [availableStock, id]
-            , function (err, response) {
-                if (err) throw err;
-                console.table(response)
-                matchQuantity(currentItem);
 
-            })
-        console.log("Your item is available")
-    } else {
-        console.log("Please select another quqntity");
-        questionToBeAsked();
-
-    } */
 }
