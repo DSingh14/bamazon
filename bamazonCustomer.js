@@ -83,19 +83,29 @@ function matchQuantity(id, currentQuantity) {
         var availableStock;
         var totalCost;
 
+
         if (res[0].stock_quantity >= currentQuantity) {
             availableStock = (res[0].stock_quantity - currentQuantity);
-            totalCost = res[0].price * currentQuantity;
+            totalCost = parseFloat(res[0].price * currentQuantity);
+
             console.log(" Item available after placing order is " + availableStock)
             connection.query("UPDATE products SET ? where ?",
                 [{ stock_quantity: availableStock },
                 { item_id: id }]
                 , function (err, response) {
                     if (err) throw err;
-                    console.table(response)
+                    // console.table(response)
 
                 })
-            console.log("Your item is available. Total cost for this transaction is $ " + totalCost);
+
+            console.log("Your item is available. Total cost for this transaction is $" + totalCost);
+
+            connection.query("SELECT * FROM products where item_id=?",
+                [id]
+                , function (err, response) {
+                    if (err) throw err;
+                    console.table(response)
+                })
         } else {
             console.log("Your order exceed current stock. Please choose another item quantity.");
             questionToBeAsked();
