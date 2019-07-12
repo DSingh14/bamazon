@@ -19,7 +19,7 @@ var connection = mysql.createConnection({
 connection.connect(function (err) {
     if (err) throw err;
     //show connectivity of SQL and Node.js
-    console.log("connected as id " + connection.threadId + "\n");
+    // console.log("connected as id " + connection.threadId + "\n");
     //query for all items available
     start();
 });
@@ -49,16 +49,16 @@ function start() {
                 case "a: View Products for Sale":
                     viewProductsForSale();
                     break;
-                case "View Low Inventory":
+                case "b: View Low Inventory":
                     viewLowInventory();
                     break;
-                case "Add to Inventory":
+                case "c: Add to Inventory":
                     addToInventory();
                     break;
-                case "Add New Product":
+                case "d: Add New Product":
                     addNewProduct();
                     break;
-                case "Exit":
+                case "e: Exit":
                     exit();
                     break;
             }
@@ -73,7 +73,15 @@ function viewProductsForSale() {
             if (err) throw err;
             console.log("Items available for sale.")
             console.table(res);
-            // start();
+            start();
         })
 
+}
+function viewLowInventory() {
+    console.log("List of products having stock quantity less than five.")
+    connection.query("SELECT * FROM products WHERE stock_quantity<=5", function (err, res) {
+        if (err) throw err;
+        console.table(res);
+        start();
+    })
 }
