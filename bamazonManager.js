@@ -77,11 +77,73 @@ function viewProductsForSale() {
         })
 
 }
+
 function viewLowInventory() {
     console.log("List of products having stock quantity less than five.")
-    connection.query("SELECT * FROM products WHERE stock_quantity<=5", function (err, res) {
+    connection.query("SELECT * FROM products WHERE stock_quantity<6", function (err, res) {
         if (err) throw err;
         console.table(res);
         start();
+    })
+}
+
+function addToInventory() {
+    console.log(" five.")
+    connection.query("SELECT item_id ,product_name, stock_quantity FROM products", function (err, res) {
+        if (err) throw err;
+        console.table(res);
+
+        // product and item selection
+        inquirer.prompt([{
+            name: "product",
+            type: "input",
+            message: "Please select the product to increase the current quantity: ",
+        },
+        {
+            name: "quantity",
+            type: "input",
+            message: "Please select quantity of product to be updated : ",
+            validate: function (value) {
+                if (isNaN(value) == false) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        }]).then(function (answer) {
+            var productChoosenName = answer.products;
+            var query = `select stock_quantity from products where product_name ='${productChoosenName}'`
+            console.log(query)
+            connection.query(
+                query,
+
+                function (err, res) {
+                    if (err) console.log(err);
+                    console.log(res)
+                    var newQuantity = (res[0].stock_quantity + parseInt(answer.quantity));
+                    console.table("New updated quantity for " + productChoosenName + " is :" + newQuantity)
+                    connection.query("UPDATE products SET ? WHERE ? ",
+                        [{
+                            item_id: productChoosenName
+                        },
+                        {
+                            stock_quantity: newQuantity
+                        }], function (err, res) {
+                            if (err) throw err;
+                        })
+
+                    connection.query("SELECT *FROM products where product_name=?",
+                        [productChoosenName],
+                        function (err, res) {
+                            if (err) throw err;
+                            console.table(res);
+                        })
+
+                })
+
+        });
+
+        // start();
     })
 }
