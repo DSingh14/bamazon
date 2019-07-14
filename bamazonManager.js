@@ -112,7 +112,7 @@ function addToInventory() {
                 }
             }
         }]).then(function (answer) {
-            var productChoosenName = answer.products;
+            var productChoosenName = answer.product;
             var query = `select stock_quantity from products where product_name ='${productChoosenName}'`
             console.log(query)
             connection.query(
@@ -121,29 +121,27 @@ function addToInventory() {
                 function (err, res) {
                     if (err) console.log(err);
                     console.log(res)
-                    var newQuantity = (res[0].stock_quantity + parseInt(answer.quantity));
+                    var newQuantity = res[0].stock_quantity + parseInt(answer.quantity);
                     console.table("New updated quantity for " + productChoosenName + " is :" + newQuantity)
-                    connection.query("UPDATE products SET ? WHERE ? ",
-                        [{
-                            item_id: productChoosenName
-                        },
-                        {
-                            stock_quantity: newQuantity
-                        }], function (err, res) {
-                            if (err) throw err;
-                        })
-
+                    connection.query("UPDATE products SET ? ",
+                        [
+                            {
+                                stock_quantity: newQuantity
+                            }], function (err, res) {
+                                if (err) throw err;
+                            })
                     connection.query("SELECT *FROM products where product_name=?",
                         [productChoosenName],
                         function (err, res) {
                             if (err) throw err;
                             console.table(res);
+                            start();
                         })
-
                 })
 
         });
 
-        // start();
+
     })
+
 }
