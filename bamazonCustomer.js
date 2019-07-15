@@ -13,7 +13,7 @@ var connection = mysql.createConnection({
 
     // Your password
     password: "Jaimatadi1",
-    database: "bamazon_db"
+    database: "bamazon1_db"
 });
 // dispaly all items available
 connection.connect(function (err) {

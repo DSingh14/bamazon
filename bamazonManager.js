@@ -86,7 +86,7 @@ function viewLowInventory() {
         start();
     })
 }
-
+// function to update product quantity
 function addToInventory() {
     console.log(" five.")
     connection.query("SELECT item_id ,product_name, stock_quantity FROM products", function (err, res) {
@@ -123,14 +123,14 @@ function addToInventory() {
                     console.log(res)
                     var newQuantity = res[0].stock_quantity + parseInt(answer.quantity);
                     console.table("New updated quantity for " + productChoosenName + " is :" + newQuantity)
-                    connection.query("UPDATE products SET ? ",
+                    connection.query("UPDATE products SET stock_quantity=? WHERE product_name=?",
                         [
-                            {
-                                stock_quantity: newQuantity
-                            }], function (err, res) {
-                                if (err) throw err;
-                            })
-                    connection.query("SELECT *FROM products where product_name=?",
+
+                            newQuantity, productChoosenName
+                        ], function (err, res) {
+                            if (err) throw err;
+                        })
+                    connection.query("SELECT * FROM products where product_name=?",
                         [productChoosenName],
                         function (err, res) {
                             if (err) throw err;
@@ -145,3 +145,67 @@ function addToInventory() {
     })
 
 }
+
+// function to add new product 
+// function addNewProduct() {
+//     inquirer.prompt([{
+//         type: "input",
+//         name: "product_name",
+//         message: "Enter the name of product to add??"
+//     },
+//     {
+//         type: "input",
+//         name: "department_name",
+//         message: "Enter the department of product to add??"
+//     },
+//     {
+//         type: "input",
+//         name: "price",
+//         message: "Enter the price of product to add??",
+//         validate: function (value) {
+//             if (isNaN(value) == false) {
+//                 return true;
+//             }
+//             else {
+//                 return false;
+//             }
+//         }
+//     },
+//     {
+//         type: "input",
+//         name: "stock_quantity",
+//         message: "Enter the quantity of product to add??",
+//         validate: function (value) {
+//             if (isNaN(value) == false) {
+//                 return true;
+//             }
+//             else {
+//                 return false;
+//             }
+//         }
+
+//     }])
+//         .then(function (answers) {
+//             console.log(answers)
+//             var newItem = answers.product_name;
+//             var newDept = answers.department_name;
+//             var newPrice = answers.price;
+//             var newQuantity = answers.stock_quantity;
+
+//             connection.query("INSERT INTO products SET ?",
+//                 [{
+//                     product_name: newItem
+//                 }, {
+//                     departement_name: newDept
+//                 }, {
+//                     price: newPrice
+//                 }, {
+//                     stock_quantity: newQuantity
+//                 }
+//                 ]), function (err, res) {
+//                     if (err) throw err;
+//                     console.log(res.affectedRows + "products inserted! \n");
+//                 }
+
+//         })
+// }
