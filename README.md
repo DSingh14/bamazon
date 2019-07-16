@@ -45,9 +45,10 @@ http://www.giphy.com/gifs/L1KX7rQorKqVXnZxcz
 
 ### GIPHY Demo of Working App for Manager View(Add New Product)
 http://www.giphy.com/gifs/dyXuiBjW2QBl2Sp3Vy
+![newprod](https://user-images.githubusercontent.com/51105876/61299638-14fc4e80-a7a6-11e9-856a-8ba4fd44c35c.gif)
 
 ### GIPHY Demo of Working App for Manager View(Exit)
-http://www.giphy.com/gifs/MBllb14g6CnzDZZQPM
+
 ![exit1](https://user-images.githubusercontent.com/51105876/61300015-ce5b2400-a7a6-11e9-8aae-bff4fdd8769d.gif)
 
 
