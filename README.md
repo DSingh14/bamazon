@@ -41,6 +41,7 @@ http://www.giphy.com/gifs/RLzHtBprgiMNvbAO0K
 http://www.giphy.com/gifs/l3U5pwKb8CUbfinRt6
 
 ### GIPHY Demo of Working App for Manager View(Add to Inventory)
+![aiventory](https://user-images.githubusercontent.com/51105876/61300371-72dd6600-a7a7-11e9-9e5f-3549ad0d28a0.gif)
 http://www.giphy.com/gifs/L1KX7rQorKqVXnZxcz
 
 ### GIPHY Demo of Working App for Manager View(Add New Product)
