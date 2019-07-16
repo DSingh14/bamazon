@@ -34,17 +34,20 @@ Within Manager portal, manager has ability to view
 	4. Add whole new product line to existing inventory
 	
 ```
-### GIPHY Demo of Working App for Manager View(View Products for Sale)
+## GIPHY Demo of Working App for Manager View(View Products for Sale)
+http://www.giphy.com/gifs/RLzHtBprgiMNvbAO0K
 
-
-### GIPHY Demo of Working App for Manager View(View Low Inventory)
+## GIPHY Demo of Working App for Manager View(View Low Inventory)
 http://www.giphy.com/gifs/l3U5pwKb8CUbfinRt6
 
-### GIPHY Demo of Working App for Manager View(Add to Inventory)
+## GIPHY Demo of Working App for Manager View(Add to Inventory)
+http://www.giphy.com/gifs/L1KX7rQorKqVXnZxcz
 
-### GIPHY Demo of Working App for Manager View(Add New Product)
+## GIPHY Demo of Working App for Manager View(Add New Product)
+http://www.giphy.com/gifs/dyXuiBjW2QBl2Sp3Vy
 
-### GIPHY Demo of Working App for Manager View(Exit)
+## GIPHY Demo of Working App for Manager View(Exit)
+http://www.giphy.com/gifs/MBllb14g6CnzDZZQPM
 
 
 
