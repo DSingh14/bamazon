@@ -35,9 +35,12 @@ Within Manager portal, manager has ability to view
 	
 ```
 ### GIPHY Demo of Working App for Manager View(View Products for Sale)
+
+![invcurr](https://user-images.githubusercontent.com/51105876/61300656-fac37000-a7a7-11e9-801d-d78a0304cbda.gif)
 http://www.giphy.com/gifs/RLzHtBprgiMNvbAO0K
 
 ### GIPHY Demo of Working App for Manager View(View Low Inventory)
+![lowcount](https://user-images.githubusercontent.com/51105876/61300646-f6975280-a7a7-11e9-9f30-12c044d22730.gif)
 http://www.giphy.com/gifs/l3U5pwKb8CUbfinRt6
 
 ### GIPHY Demo of Working App for Manager View(Add to Inventory)
