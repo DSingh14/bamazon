@@ -24,7 +24,7 @@ will not go through. Coustomer has to select new item and quantity.
  ```
 
 ### GIPHY Demo of Working App for Customer View
-http://www.giphy.com/gifs/Uq9x4KCUb102tIkzuj
+![customer](https://user-images.githubusercontent.com/51105876/61300837-58f05300-a7a8-11e9-80df-58ced138c2ed.gif)
 
 ```
 Within Manager portal, manager has ability to view 
@@ -37,22 +37,17 @@ Within Manager portal, manager has ability to view
 ### GIPHY Demo of Working App for Manager View(View Products for Sale)
 
 ![invcurr](https://user-images.githubusercontent.com/51105876/61300656-fac37000-a7a7-11e9-801d-d78a0304cbda.gif)
-http://www.giphy.com/gifs/RLzHtBprgiMNvbAO0K
 
 ### GIPHY Demo of Working App for Manager View(View Low Inventory)
 ![lowcount](https://user-images.githubusercontent.com/51105876/61300646-f6975280-a7a7-11e9-9f30-12c044d22730.gif)
-http://www.giphy.com/gifs/l3U5pwKb8CUbfinRt6
 
 ### GIPHY Demo of Working App for Manager View(Add to Inventory)
 ![aiventory](https://user-images.githubusercontent.com/51105876/61300371-72dd6600-a7a7-11e9-9e5f-3549ad0d28a0.gif)
-http://www.giphy.com/gifs/L1KX7rQorKqVXnZxcz
 
 ### GIPHY Demo of Working App for Manager View(Add New Product)
-http://www.giphy.com/gifs/dyXuiBjW2QBl2Sp3Vy
 ![newprod](https://user-images.githubusercontent.com/51105876/61299638-14fc4e80-a7a6-11e9-856a-8ba4fd44c35c.gif)
 
 ### GIPHY Demo of Working App for Manager View(Exit)
-
 ![exit1](https://user-images.githubusercontent.com/51105876/61300015-ce5b2400-a7a6-11e9-8aae-bff4fdd8769d.gif)
 
 
