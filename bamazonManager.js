@@ -13,7 +13,7 @@ var connection = mysql.createConnection({
 
     // Your password
     password: "Jaimatadi1",
-    database: "bamazon_db"
+    database: "bamazon1_db"
 });
 // dispaly all items available
 connection.connect(function (err) {
@@ -125,7 +125,6 @@ function addToInventory() {
                     console.table("New updated quantity for " + productChoosenName + " is :" + newQuantity)
                     connection.query("UPDATE products SET stock_quantity=? WHERE product_name=?",
                         [
-
                             newQuantity, productChoosenName
                         ], function (err, res) {
                             if (err) throw err;
@@ -147,65 +146,77 @@ function addToInventory() {
 }
 
 // function to add new product 
-// function addNewProduct() {
-//     inquirer.prompt([{
-//         type: "input",
-//         name: "product_name",
-//         message: "Enter the name of product to add??"
-//     },
-//     {
-//         type: "input",
-//         name: "department_name",
-//         message: "Enter the department of product to add??"
-//     },
-//     {
-//         type: "input",
-//         name: "price",
-//         message: "Enter the price of product to add??",
-//         validate: function (value) {
-//             if (isNaN(value) == false) {
-//                 return true;
-//             }
-//             else {
-//                 return false;
-//             }
-//         }
-//     },
-//     {
-//         type: "input",
-//         name: "stock_quantity",
-//         message: "Enter the quantity of product to add??",
-//         validate: function (value) {
-//             if (isNaN(value) == false) {
-//                 return true;
-//             }
-//             else {
-//                 return false;
-//             }
-//         }
+function addNewProduct() {
+    inquirer.prompt([{
+        type: "input",
+        name: "product_name",
+        message: "Enter the name of product to add??"
+    },
+    {
+        type: "input",
+        name: "department_name",
+        message: "Enter the department of product to add??"
+    },
+    {
+        type: "input",
+        name: "price",
+        message: "Enter the price of product to add??",
+        validate: function (value) {
+            if (isNaN(value) == false) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "stock_quantity",
+        message: "Enter the quantity of product to add??",
+        validate: function (value) {
+            if (isNaN(value) == false) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
 
-//     }])
-//         .then(function (answers) {
-//             console.log(answers)
-//             var newItem = answers.product_name;
-//             var newDept = answers.department_name;
-//             var newPrice = answers.price;
-//             var newQuantity = answers.stock_quantity;
+    }])
+        .then(function (answers) {
+            console.log(answers)
+            var newItem = answers.product_name;
+            var newDept = answers.department_name;
+            var newPrice = answers.price;
+            var newQuantity = answers.stock_quantity;
 
-//             connection.query("INSERT INTO products SET ?",
-//                 [{
-//                     product_name: newItem
-//                 }, {
-//                     departement_name: newDept
-//                 }, {
-//                     price: newPrice
-//                 }, {
-//                     stock_quantity: newQuantity
-//                 }
-//                 ]), function (err, res) {
-//                     if (err) throw err;
-//                     console.log(res.affectedRows + "products inserted! \n");
-//                 }
+            connection.query("INSERT INTO products SET ?",
+                {
+                    product_name: newItem,
+                    departement_name: newDept,
+                    price: newPrice,
+                    stock_quantity: newQuantity
+                }
 
-//         })
-// }
+                , function (err, res) {
+                    if (err) throw err;
+                    console.log(res.affectedRows + "products inserted! \n");
+                    console.log("Product " + newItem + " in the " + newDept + " department has been inserted at " + newPrice + " dollars and there are " + newQuantity + " of them.");
+                }
+
+            )
+            connection.query("SELECT * FROM products",
+                function (err, res) {
+                    if (err) throw err;
+                    console.table(res);
+                    start();
+                });
+
+        });
+}
+
+function exit() {
+    console.log("Thank you! do come back and be efficient!");
+    start();
+}

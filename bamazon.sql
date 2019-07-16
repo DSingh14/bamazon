@@ -14,15 +14,15 @@ CREATE TABLE products (
 );
 
 INSERT INTO products (product_name,departement_name,price,stock_quantity)
-VALUES('tennis ball', ' sports' , 10.25 ,120),
-        ('volleyball','sports', 25.99 ,352),
-        ('Basketball','sports', 99.00 ,100),
-        ('Bodywash', 'cosmetics ' ,20.23 ,60),
-        ('Colone', 'cosmetics ' ,100 ,80),
-        ('Shampoo', 'cosmetics ' ,7.23 ,50),
-        ('Harry Potter',' books' , 12.76 ,20),
-        ('Composite workbook',' books' , 1.76 ,30),
-        ('Pens',' books' , 2.76 ,200),
-        ('Fresh flower', 'Misc ',30.45,10);
+VALUES('tennis ball', ' sports' , 10.25 ,12),
+        ('volleyball','sports', 25.99 ,32),
+        ('basketball','sports', 99.00 ,10),
+        ('bodywash', 'cosmetics ' ,20.23 ,6),
+        ('colone', 'cosmetics ' ,100 ,4),
+        ('shampoo', 'cosmetics ' ,7.23 ,50),
+        ('harry potter',' books' , 12.76 ,2),
+        ('composite workbook',' books' , 1.76 ,30),
+        ('pens',' books' , 2.76 ,20),
+        ('fresh flower', 'misc ',30.45,10);
 
 select * from products;
